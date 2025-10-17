@@ -2,6 +2,7 @@
 #define INTERIORLIGHTS_H
 
 #include <QDialog>
+#include "wiringPi.h"
 
 namespace Ui {
 class InteriorLights;
@@ -17,6 +18,14 @@ public:
 
 private slots:
     void on_pushButton_clicked();
+
+    void on_Front_stateChanged(int arg1);
+
+    void on_Mid_stateChanged(int arg1);
+
+    void on_Back_stateChanged(int arg1);
+
+    void on_resetButton_clicked();
 
 private:
     Ui::InteriorLights *ui;

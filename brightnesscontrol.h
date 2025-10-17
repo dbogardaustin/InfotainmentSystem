@@ -18,6 +18,12 @@ public:
 private slots:
     void on_pushButton_clicked();
 
+    void on_horizontalSlider_valueChanged(int value);
+
+    void on_brightButton_clicked();
+
+    void on_dimButton_clicked();
+
 private:
     Ui::BrightnessControl *ui;
 };
