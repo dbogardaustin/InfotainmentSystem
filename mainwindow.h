@@ -1,10 +1,10 @@
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
 
+#include <QMainWindow>
 #include "about.h"
 #include "brightnesscontrol.h"
 #include "interiorlights.h"
-#include <QMainWindow>
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -19,18 +19,18 @@ public:
     ~MainWindow();
 
 private slots:
-    void on_headlights_clicked();
-
     void on_about_clicked();
 
     void on_brightnessControl_clicked();
 
     void on_interiorLights_clicked();
 
+    void on_headlights_clicked();
+
 private:
     Ui::MainWindow *ui;
     About *about;
-    BrightnessControl *brightnessControl;
     InteriorLights *interiorLights;
+    BrightnessControl *brightnessControl;
 };
 #endif // MAINWINDOW_H

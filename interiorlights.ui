@@ -16,14 +16,66 @@
   <widget class="QPushButton" name="pushButton">
    <property name="geometry">
     <rect>
-     <x>150</x>
-     <y>250</y>
-     <width>100</width>
+     <x>120</x>
+     <y>230</y>
+     <width>91</width>
      <height>30</height>
     </rect>
    </property>
    <property name="text">
     <string>Back</string>
+   </property>
+  </widget>
+  <widget class="QCheckBox" name="Front">
+   <property name="geometry">
+    <rect>
+     <x>100</x>
+     <y>60</y>
+     <width>95</width>
+     <height>28</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Front</string>
+   </property>
+  </widget>
+  <widget class="QCheckBox" name="Mid">
+   <property name="geometry">
+    <rect>
+     <x>100</x>
+     <y>100</y>
+     <width>95</width>
+     <height>28</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Mid</string>
+   </property>
+  </widget>
+  <widget class="QCheckBox" name="Back">
+   <property name="geometry">
+    <rect>
+     <x>100</x>
+     <y>140</y>
+     <width>95</width>
+     <height>28</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Back</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="resetButton">
+   <property name="geometry">
+    <rect>
+     <x>210</x>
+     <y>100</y>
+     <width>91</width>
+     <height>30</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>reset</string>
    </property>
   </widget>
  </widget>

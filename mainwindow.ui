@@ -17,8 +17,8 @@
    <widget class="QPushButton" name="headlights">
     <property name="geometry">
      <rect>
-      <x>50</x>
-      <y>100</y>
+      <x>60</x>
+      <y>40</y>
       <width>150</width>
       <height>30</height>
      </rect>
@@ -30,8 +30,8 @@
    <widget class="QPushButton" name="brightnessControl">
     <property name="geometry">
      <rect>
-      <x>50</x>
-      <y>150</y>
+      <x>60</x>
+      <y>80</y>
       <width>150</width>
       <height>30</height>
      </rect>
@@ -43,8 +43,8 @@
    <widget class="QPushButton" name="interiorLights">
     <property name="geometry">
      <rect>
-      <x>50</x>
-      <y>200</y>
+      <x>60</x>
+      <y>120</y>
       <width>150</width>
       <height>30</height>
      </rect>
@@ -56,8 +56,8 @@
    <widget class="QPushButton" name="about">
     <property name="geometry">
      <rect>
-      <x>50</x>
-      <y>250</y>
+      <x>60</x>
+      <y>160</y>
       <width>150</width>
       <height>30</height>
      </rect>

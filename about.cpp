@@ -1,7 +1,6 @@
 #include "about.h"
 #include "ui_about.h"
 #include "mainwindow.h"
-
 static MainWindow *mainWindow;
 
 About::About(QWidget *parent) :

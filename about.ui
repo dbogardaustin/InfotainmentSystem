@@ -16,14 +16,86 @@
   <widget class="QPushButton" name="pushButton">
    <property name="geometry">
     <rect>
-     <x>150</x>
-     <y>250</y>
-     <width>100</width>
+     <x>140</x>
+     <y>230</y>
+     <width>91</width>
      <height>30</height>
     </rect>
    </property>
    <property name="text">
     <string>Back</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="WelcomeLabel">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>5</y>
+     <width>360</width>
+     <height>25</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>16</pointsize>
+     <weight>75</weight>
+     <bold>true</bold>
+    </font>
+   </property>
+   <property name="text">
+    <string>Welcome to the Infotainment System</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label">
+   <property name="geometry">
+    <rect>
+     <x>50</x>
+     <y>50</y>
+     <width>250</width>
+     <height>22</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>You can use this sysem to control:</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_2">
+   <property name="geometry">
+    <rect>
+     <x>70</x>
+     <y>80</y>
+     <width>100</width>
+     <height>22</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Headlights</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_3">
+   <property name="geometry">
+    <rect>
+     <x>70</x>
+     <y>105</y>
+     <width>150</width>
+     <height>22</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Brightness Control</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_4">
+   <property name="geometry">
+    <rect>
+     <x>70</x>
+     <y>130</y>
+     <width>150</width>
+     <height>22</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Interior Lights</string>
    </property>
   </widget>
  </widget>
