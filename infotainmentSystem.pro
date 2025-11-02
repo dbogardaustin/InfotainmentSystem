@@ -27,7 +27,7 @@ FORMS += \
     interiorlights.ui \
     mainwindow.ui
 
-LIBS+= -L/usr/local/lib -lwiringPi
+LIBS += -L/usr/local/lib -lwiringPi
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
