@@ -12,4 +12,6 @@ static const int BACK_RIGHT_INTERIOR_GPIO = 20;
 
 static const int HEADLIGHTS_GPIO = 12;
 
+static const int HORN_GPIO = 1;
+
 #endif

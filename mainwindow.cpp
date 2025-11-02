@@ -1,14 +1,21 @@
+#include <QDebug>
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 #include "gpioconstants.h"
 #include <wiringPi.h>
+#include <softPwm.h>
 
+
+static int hornPWM = 0;
 static bool headlightsOn = false;
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+    hornTimer = new QTimer(this);
+    hornTimer->setInterval(1);
+    connect(hornTimer, &QTimer::timeout, this, &MainWindow::carHorn);
 
     wiringPiSetupGpio();
     pinMode(FRONT_RIGHT_INTERIOR_GPIO, OUTPUT);
@@ -68,3 +75,33 @@ void MainWindow::on_interiorLights_clicked()
     interiorLights->show();
 }
 
+
+void MainWindow::on_Horn_pressed()
+{
+    hornTimer->start();
+//     softPwmCreate(HORN_GPIO, 0, 100);
+}
+
+void MainWindow::carHorn(){
+    hornPWM = (hornPWM + 1) % 2;
+    qInfo() << "PWM SET TO: " << hornPWM << "\n";
+    digitalWrite(HORN_GPIO, hornPWM);
+//    softPwmWrite(HORN_GPIO, hornPWM);
+//    if(hornPWM==0){
+//       softPwmWrite(HORN_GPIO,0);
+//    }
+//    else{
+//        softPwmWrite(HORN_GPIO,hornPWM);
+//    }
+}
+
+
+
+
+void MainWindow::on_Horn_released()
+{
+    hornTimer->stop();
+    hornPWM = 0;
+    digitalWrite(HORN_GPIO, 0);
+//    softPwmWrite(HORN_GPIO, hornPWM);
+}

@@ -2,6 +2,7 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
+#include <QTimer>
 #include "about.h"
 #include "brightnesscontrol.h"
 #include "interiorlights.h"
@@ -17,6 +18,7 @@ class MainWindow : public QMainWindow
 public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
+    void carHorn();
 
 private slots:
     void on_about_clicked();
@@ -27,10 +29,16 @@ private slots:
 
     void on_headlights_clicked();
 
+    void on_Horn_pressed();
+
+    void on_Horn_released();
+
 private:
     Ui::MainWindow *ui;
     About *about;
     InteriorLights *interiorLights;
     BrightnessControl *brightnessControl;
+    QTimer *hornTimer;
+
 };
 #endif // MAINWINDOW_H
