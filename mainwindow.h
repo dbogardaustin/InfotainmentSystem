@@ -5,7 +5,7 @@
 #include "about.h"
 #include "brightnesscontrol.h"
 #include "interiorlights.h"
-
+static const int front_red1_gpio = 19;
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
 QT_END_NAMESPACE

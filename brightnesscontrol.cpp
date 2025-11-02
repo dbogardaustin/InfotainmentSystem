@@ -1,6 +1,7 @@
 #include "brightnesscontrol.h"
 #include "ui_brightnesscontrol.h"
 #include "mainwindow.h"
+#include <wiringPi.h>
 #include <softPwm.h>
 
 static int brightnessValue = 0;

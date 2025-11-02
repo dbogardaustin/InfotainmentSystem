@@ -26,43 +26,44 @@
     <string>Back</string>
    </property>
   </widget>
-  <widget class="QLabel" name="WelcomeLabel">
+  <widget class="QLabel" name="AboutTitle">
    <property name="geometry">
     <rect>
-     <x>20</x>
-     <y>5</y>
-     <width>360</width>
-     <height>25</height>
+     <x>30</x>
+     <y>20</y>
+     <width>330</width>
+     <height>22</height>
     </rect>
    </property>
    <property name="font">
     <font>
-     <pointsize>16</pointsize>
+     <pointsize>14</pointsize>
      <weight>75</weight>
      <bold>true</bold>
     </font>
    </property>
    <property name="text">
-    <string>Welcome to the Infotainment System</string>
+    <string>Welcome to the Infotainment System!</string>
    </property>
   </widget>
-  <widget class="QLabel" name="label">
+  <widget class="QLabel" name="choices_label">
    <property name="geometry">
     <rect>
      <x>50</x>
      <y>50</y>
-     <width>250</width>
+
+     <width>260</width>
      <height>22</height>
     </rect>
    </property>
    <property name="text">
-    <string>You can use this sysem to control:</string>
+    <string>You can use this system to control:</string>
    </property>
   </widget>
-  <widget class="QLabel" name="label_2">
+  <widget class="QLabel" name="headlights_label">
    <property name="geometry">
     <rect>
-     <x>70</x>
+     <x>100</x>
      <y>80</y>
      <width>100</width>
      <height>22</height>
@@ -72,11 +73,11 @@
     <string>Headlights</string>
    </property>
   </widget>
-  <widget class="QLabel" name="label_3">
+  <widget class="QLabel" name="brightness_label">
    <property name="geometry">
     <rect>
-     <x>70</x>
-     <y>105</y>
+     <x>100</x>
+     <y>110</y>
      <width>150</width>
      <height>22</height>
     </rect>
@@ -85,12 +86,12 @@
     <string>Brightness Control</string>
    </property>
   </widget>
-  <widget class="QLabel" name="label_4">
+  <widget class="QLabel" name="interiorLights_label">
    <property name="geometry">
     <rect>
-     <x>70</x>
-     <y>130</y>
-     <width>150</width>
+     <x>100</x>
+     <y>140</y>
+     <width>100</width>
      <height>22</height>
     </rect>
    </property>
