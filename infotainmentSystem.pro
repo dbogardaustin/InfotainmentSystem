@@ -19,6 +19,7 @@ HEADERS += \
     about.h \
     brightnesscontrol.h \
     interiorlights.h \
+    gpioconstants.h \
     mainwindow.h
 
 FORMS += \
