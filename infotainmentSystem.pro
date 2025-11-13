@@ -11,6 +11,7 @@ CONFIG += console
 SOURCES += \
     about.cpp \
     brightnesscontrol.cpp \
+    circuitbutton.cpp \
     interiorlights.cpp \
     main.cpp \
     mainwindow.cpp
@@ -18,6 +19,7 @@ SOURCES += \
 HEADERS += \
     about.h \
     brightnesscontrol.h \
+    circuitbutton.h \
     interiorlights.h \
     gpioconstants.h \
     mainwindow.h

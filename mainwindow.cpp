@@ -5,7 +5,6 @@
 #include <wiringPi.h>
 #include <softPwm.h>
 
-
 static int hornPWM = 0;
 static bool headlightsOn = false;
 MainWindow::MainWindow(QWidget *parent)
@@ -27,12 +26,14 @@ MainWindow::MainWindow(QWidget *parent)
     pinMode(HEADLIGHTS_GPIO, OUTPUT);
     pinMode(HORN_GPIO, OUTPUT);
 
+    circuitButton = new CircuitButton(this, HORN_BUTTON_GPIO);
+    connect(circuitButton, &CircuitButton::buttonPressed, this, &MainWindow::on_Horn_pressed, Qt::QueuedConnection);
+    connect(circuitButton, &CircuitButton::buttonReleased, this, &MainWindow::on_Horn_released, Qt::QueuedConnection);
+
     if (headlightsOn) {
         ui->headlights->setStyleSheet("background-color:rgb(255,255,192)");// on when true
-        digitalWrite(HEADLIGHTS_GPIO, HIGH);
     } else {
         ui->headlights->setStyleSheet("background-color:rgb(135,135,135)");// off when false
-        digitalWrite(HEADLIGHTS_GPIO, LOW);
     }
 }
 
@@ -46,12 +47,10 @@ void MainWindow::on_headlights_clicked()
     if(headlightsOn){
         headlightsOn = false;
         ui->headlights->setStyleSheet("background-color:rgb(135,135,135)");// headlights now off
-        digitalWrite(HEADLIGHTS_GPIO, LOW);
     }
     else{
         headlightsOn = true;
         ui->headlights->setStyleSheet("background-color:rgb(255,255,192)");// headlights now on
-        digitalWrite(HEADLIGHTS_GPIO, HIGH);
     }
 }
 
@@ -81,20 +80,12 @@ void MainWindow::on_Horn_pressed()
 {
     hornTimer->start();
     ui->Horn->setStyleSheet("border-radius:80; border-color:rgb(0,0,0); border-style:solid; border-width:3; background-color:rgb(255,0,0)");
-//     softPwmCreate(HORN_GPIO, 0, 100);
 }
 
-void MainWindow::carHorn(){
+void MainWindow::carHorn() {
     hornPWM = (hornPWM + 1) % 2;
     qInfo() << "PWM SET TO: " << hornPWM;
     digitalWrite(HORN_GPIO, hornPWM);
-//    softPwmWrite(HORN_GPIO, hornPWM);
-//    if(hornPWM==0){
-//       softPwmWrite(HORN_GPIO,0);
-//    }
-//    else{
-//        softPwmWrite(HORN_GPIO,hornPWM);
-//    }
 }
 
 

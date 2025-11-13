@@ -29,6 +29,7 @@ private slots:
 
 private:
     Ui::InteriorLights *ui;
+    QWidget *parent;
 };
 
 #endif // INTERIORLIGHTS_H

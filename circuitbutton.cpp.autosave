@@ -1,0 +1,9 @@
+#include "circuitbutton.h"
+#include <gpioconstants.h>
+#include "wiringPi.h"
+
+CircuitButton::CircuitButton(QObject *parent, int gpioPin)
+    : QObject{parent}
+{
+    wiringPiISR(gpioPin, IN_)
+}

@@ -1,11 +1,10 @@
 #include "brightnesscontrol.h"
 #include "ui_brightnesscontrol.h"
-#include "mainwindow.h"
 #include <wiringPi.h>
+#include <gpioconstants.h>
 #include <softPwm.h>
 
 static int brightnessValue = 0;
-static MainWindow *mainWindow;
 
 BrightnessControl::BrightnessControl(QWidget *parent) :
     QDialog(parent),
@@ -14,6 +13,7 @@ BrightnessControl::BrightnessControl(QWidget *parent) :
     ui->setupUi(this);
     ui->progressBar->setValue(brightnessValue);
     ui->horizontalSlider->setValue(brightnessValue);
+    this->parent = parent;
 }
 
 BrightnessControl::~BrightnessControl()
@@ -24,22 +24,21 @@ BrightnessControl::~BrightnessControl()
 void BrightnessControl::on_pushButton_clicked()
 {
     hide();
-    mainWindow = new MainWindow(this);
-    mainWindow->show();
+    parent->show();
 }
 
 void BrightnessControl::on_horizontalSlider_valueChanged(int value)
 {
     brightnessValue = value;
     ui->progressBar->setValue(brightnessValue);
-    softPwmCreate(22, 0, 100);
-    softPwmWrite(22,brightnessValue);
+    softPwmCreate(FRONT_LEFT_INTERIOR_GPIO, 0, 100);
+    softPwmWrite(FRONT_LEFT_INTERIOR_GPIO,brightnessValue);
 }
 
 void BrightnessControl::on_brightButton_clicked()
 {
-    softPwmCreate(22, 0, 100);
-    softPwmWrite(22,100);
+    softPwmCreate(FRONT_LEFT_INTERIOR_GPIO, 0, 100);
+    softPwmWrite(FRONT_LEFT_INTERIOR_GPIO,100);
     brightnessValue = 100;
     ui->progressBar->setValue(brightnessValue);
     ui->horizontalSlider->setValue(brightnessValue);
@@ -47,8 +46,8 @@ void BrightnessControl::on_brightButton_clicked()
 
 void BrightnessControl::on_dimButton_clicked()
 {
-    softPwmCreate(22, 0, 100);
-    softPwmWrite(22,10);
+    softPwmCreate(FRONT_LEFT_INTERIOR_GPIO, 0, 100);
+    softPwmWrite(FRONT_LEFT_INTERIOR_GPIO,10);
     brightnessValue = 10;
     ui->progressBar->setValue(brightnessValue);
     ui->horizontalSlider->setValue(brightnessValue);
