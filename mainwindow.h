@@ -3,10 +3,11 @@
 
 #include <QMainWindow>
 #include <QTimer>
+#include <circuitbutton.h>
 #include "about.h"
 #include "brightnesscontrol.h"
 #include "interiorlights.h"
-static const int front_red1_gpio = 19;
+
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
 QT_END_NAMESPACE
@@ -39,6 +40,7 @@ private:
     InteriorLights *interiorLights;
     BrightnessControl *brightnessControl;
     QTimer *hornTimer;
+    CircuitButton *circuitButton;
 
 };
 #endif // MAINWINDOW_H

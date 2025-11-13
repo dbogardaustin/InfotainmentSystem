@@ -26,6 +26,7 @@ private slots:
 
 private:
     Ui::BrightnessControl *ui;
+    QWidget *parent;
 };
 
 #endif // BRIGHTNESSCONTROL_H
