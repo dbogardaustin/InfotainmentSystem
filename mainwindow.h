@@ -40,7 +40,6 @@ private:
     InteriorLights *interiorLights;
     BrightnessControl *brightnessControl;
     QTimer *hornTimer;
-    CircuitButton *circuitButton;
 
 };
 #endif // MAINWINDOW_H

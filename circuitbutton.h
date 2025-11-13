@@ -2,7 +2,6 @@
 #define CIRCUITBUTTON_H
 
 #include <QObject>
-#include <QTimer>
 
 class CircuitButton : public QObject
 {
@@ -10,16 +9,17 @@ class CircuitButton : public QObject
 public:
     explicit CircuitButton(QObject *parent = nullptr);
     explicit CircuitButton(QObject *parent = nullptr, int gpioPin = 0);
+    void onButtonPress();
+    void onButtonRelease();
+    int getGpioPin();
 
-    QTimer *hornTimer;
+private:
+    int gpioPin;
 
 signals:
     void buttonPressed();
     void buttonReleased();
 
-private:
-    void onButtonPress();
-    void onButtonRelease();
 };
 
 #endif // CIRCUITBUTTON_H

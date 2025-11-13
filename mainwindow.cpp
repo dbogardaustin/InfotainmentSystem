@@ -7,6 +7,21 @@
 
 static int hornPWM = 0;
 static bool headlightsOn = false;
+static CircuitButton *circuitButton;
+
+void circuitButtonISR() {
+    qInfo() << "ISR Called";
+    if (circuitButton) { //Check if circuitButton is not null
+        if (digitalRead(circuitButton->getGpioPin())) { // See if this was a press by reading (Checks for any non 0 value)
+            qInfo() << "Signaling Circuit Button press";
+            circuitButton->onButtonPress();
+        } else { // The read came back as 0
+            qInfo() << "Signaling Circuit Button release";
+            circuitButton->onButtonRelease();
+        }
+    }
+}
+
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
@@ -25,8 +40,10 @@ MainWindow::MainWindow(QWidget *parent)
     pinMode(BACK_LEFT_INTERIOR_GPIO, OUTPUT);
     pinMode(HEADLIGHTS_GPIO, OUTPUT);
     pinMode(HORN_GPIO, OUTPUT);
+    pinMode(HORN_BUTTON_GPIO, INPUT);
 
     circuitButton = new CircuitButton(this, HORN_BUTTON_GPIO);
+    wiringPiISR(HORN_BUTTON_GPIO, INT_EDGE_BOTH, &circuitButtonISR);
     connect(circuitButton, &CircuitButton::buttonPressed, this, &MainWindow::on_Horn_pressed, Qt::QueuedConnection);
     connect(circuitButton, &CircuitButton::buttonReleased, this, &MainWindow::on_Horn_released, Qt::QueuedConnection);
 

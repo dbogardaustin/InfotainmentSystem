@@ -1,12 +1,9 @@
 #include "circuitbutton.h"
-#include <gpioconstants.h>
-#include "wiringPi.h"
 
 CircuitButton::CircuitButton(QObject *parent, int gpioPin)
     : QObject{parent}
 {
-    wiringPiISR(gpioPin, INT_EDGE_RISING, &CircuitButton::onButtonPress);
-    wiringPiISR(gpioPin, INT_EDGE_FALLING, &CircuitButton::onButtonRelease);
+    this->gpioPin = gpioPin;
 }
 
 
@@ -16,4 +13,8 @@ void CircuitButton::onButtonPress() {
 
 void CircuitButton::onButtonRelease() {
     emit buttonReleased();
+}
+
+int CircuitButton::getGpioPin() {
+    return this->gpioPin;
 }
