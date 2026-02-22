@@ -39,3 +39,6 @@ An example of what this my look like is below
 
 ### Branches
 
+### BitWriter
+https://gist.github.com/sckirk1/2a9e3bdc15fb6b03eba4a12cd335d66e
+
